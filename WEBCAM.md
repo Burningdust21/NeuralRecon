@@ -19,6 +19,9 @@ Install [NeuralRecon]( https://github.com/Burningdust21/webcam_ios.git) to you A
    Make sure you have docker installed in your system!
 
 2. Install `requirement.txt`
+   ```bash
+   pip intall -r requirement.txt
+   ```
 
 ### System Configration
 
@@ -46,8 +49,8 @@ Your server and IOS can function normally seperatly. This section helps you to c
    - Config IP addresses in `/config/webcam.yaml`
 
      ```yaml
-     RTMP_SERVER: "rtmp://127.0.0.1:1935/stream/stream_id" # your rtmp server URL
-     POSE_SERVER: 'http://192.168.50.211:9000/pose' # your logger URL, which is `ipad_IP:9000/pose`
+     RTMP_SERVER: "rtmp://127.0.0.1:1935/stream/STREAM_ID" # your rtmp server URL
+     POSE_SERVER: 'http://IPAD_IP:9000/pose' # your logger URL, which is `ipad_IP:9000/pose`
      ```
 
    - Note that value of `RTMP_SERVER` here should be the same as that in IOS: `RTMP server URL` + `stream ID`.
@@ -66,11 +69,11 @@ Your server and IOS can function normally seperatly. This section helps you to c
    webcam.py --cfg webcam.yaml
    ```
 
-2. Hit play button on IOS.
+2. Checkout capture resolution and sending resolution, then hit play button on IOS.
 
 3. Recontructions started, you can see the real time visual result on the server. Besides, resulting meshes are saved under folder `real_time`.
 
 ### Trouble Shoooting
 
 1. If one of IOS or Server is not responding, please check your network status.
-2. On encounter any wierd problem, restart may be the solution!
+2. On encountering any wierd problem, restart may be the solution!
