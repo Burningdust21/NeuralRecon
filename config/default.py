@@ -19,6 +19,9 @@ _C.REDUCE_GPU_MEM = False
 _C.LOCAL_RANK = 0
 _C.DISTRIBUTED = False
 
+_C.RTMP_SERVER = "rtmp://127.0.0.1:1935/stream/test3"
+_C.POSE_SERVER = "http://127.0.0.1:8080"
+
 # train
 _C.TRAIN = CN()
 _C.TRAIN.PATH = ''
