@@ -2,12 +2,12 @@ DATASET: 'demo'
 BATCH_SIZE: 1
 SAVE_SCENE_MESH: True
 SAVE_INCREMENTAL: True
-SAVE_FREQ: 20
+SAVE_FREQ: 5
 MODE: 'test'
 LOGDIR: './checkpoints'
 
-RTMP_SERVER: "rtmp://127.0.0.1:1935/stream/STREAM_ID" # your rtmp server URL
-POSE_SERVER: 'http://IPAD_IP:9000/pose' # your logger URL, which is `ipad_IP:9000/pose`
+RTMP_SERVER: "rtmp://127.0.0.1:1935/stream/test3" # your rtmp server URL
+POSE_SERVER: 'http://172.20.10.1:9000/pose' # your logger URL, which is `ipad_IP:9000/pose`
 
 TEST:
   N_VIEWS: 9

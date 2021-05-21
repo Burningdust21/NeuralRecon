@@ -3,7 +3,7 @@ from utils import *
 import torch.nn as nn
 from datasets import transforms
 import time
-
+from tools.render import Visualizer
 
 class ModelEval:
     def __init__(self, cfg):
@@ -20,12 +20,12 @@ class ModelEval:
 
         # Load trained model
         self.load_model(cfg.LOGDIR)
-        self.vis = o3d.visualization.VisualizerWithKeyCallback()
-        self.vis.create_window()
-
+        self.vis = Visualizer()
         # directory of save mesh
         self.save_path = None
         self.setup_dir()
+
+
 
         pass
 
@@ -109,15 +109,10 @@ class ModelEval:
         mesh = self.sdf2mesh(self.cfg.MODEL.VOXEL_SIZE, origin, tsdf_volume)
         if self.count % self.cfg.SAVE_FREQ == 0:
             mesh.export(os.path.join(self.save_path, "{:04d}.ply".format(self.count)))
-        mesh = mesh.as_open3d
-        mesh = mesh.compute_vertex_normals()
         self.count += 1
 
         # vis mesh
-        self.vis.clear_geometries()
-        self.vis.add_geometry(mesh)
-        self.vis.poll_events()
-        self.vis.update_renderer()
+        self.vis.vis_mesh(mesh)
         return mesh
 
     @staticmethod
